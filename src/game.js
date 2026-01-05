@@ -8,9 +8,9 @@ export default class Game {
     this.isDone = false;
   }
 
-  playersTurn() {
+  playersTurn(coords = null) {
     const enemy = this.turn === this.player ? this.npc : this.player;
-    this.turn.attack(enemy.gameboard);
+    this.turn.attack(enemy.gameboard, coords);
     if (enemy.gameboard.allShipsSunk()) {
       this.isDone = true;
       return;
